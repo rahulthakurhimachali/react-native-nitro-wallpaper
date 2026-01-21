@@ -34,7 +34,7 @@ android {
   namespace "com.margelo.nitro.reactnativenitrowallpaper"
 
   ndkVersion "26.1.10909125"
-  compileSdkVersion getExtOrIntegerDefault("compileSdkVersion")
+  compileSdk getExtOrIntegerDefault("compileSdkVersion")
 
   defaultConfig {
     minSdkVersion getExtOrIntegerDefault("minSdkVersion")
