@@ -10,9 +10,29 @@ npm install react-native-nitro-wallpaper react-native-nitro-modules
 
 > `react-native-nitro-modules` is required as this library relies on [Nitro Modules](https://nitro.margelo.com/).
 
-### Android Setup
+### Expo Setup
+Add the plugin to your `app.json` or `app.config.js`:
+
+```json
+{
+  "expo": {
+    "plugins": [
+      "react-native-nitro-wallpaper"
+    ]
+  }
+}
+```
+
+Then rebuild your app:
+
+```sh
+npx expo prebuild
+```
+
+### Android Setup (Bare React Native)
 
 No additional setup required. The library will be automatically linked.
+
 
 > **Note:** This library is Android-only. iOS is not supported. If you try to use it on iOS, it will throw an error.
 
