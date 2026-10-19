@@ -2,7 +2,20 @@
 
 Set wallpaper on React Native (Android only)
 
+## Compatibility
+
+| Setup | Supported |
+| --- | --- |
+| Bare React Native (Android) | ✅ |
+| Expo with a development build (`expo prebuild` / `expo run:android` / EAS Build) | ✅ |
+| Expo Go | ❌ (contains native code) |
+| iOS | ❌ (throws an error) |
+
+Native libraries are 16 KB page size aligned, as required by Google Play for apps targeting Android 15+.
+
 ## Installation
+
+### Bare React Native
 
 ```sh
 npm install react-native-nitro-wallpaper react-native-nitro-modules
@@ -10,31 +23,35 @@ npm install react-native-nitro-wallpaper react-native-nitro-modules
 
 > `react-native-nitro-modules` is required as this library relies on [Nitro Modules](https://nitro.margelo.com/).
 
-### Expo Setup
-Add the plugin to your `app.json` or `app.config.js`:
+No additional setup required. The library is autolinked and the `SET_WALLPAPER` permission is merged into your app's manifest automatically. Rebuild the app:
+
+```sh
+npx react-native run-android
+```
+
+### Expo
+
+```sh
+npx expo install react-native-nitro-wallpaper react-native-nitro-modules
+```
+
+Add the config plugin to your `app.json` or `app.config.js`:
 
 ```json
 {
   "expo": {
-    "plugins": [
-      "react-native-nitro-wallpaper"
-    ]
+    "plugins": ["react-native-nitro-wallpaper"]
   }
 }
 ```
 
-Then rebuild your app:
+Then build a development build (this library doesn't work in Expo Go):
 
 ```sh
-npx expo prebuild
+npx expo run:android
 ```
 
-### Android Setup (Bare React Native)
-
-No additional setup required. The library will be automatically linked.
-
-
-> **Note:** This library is Android-only. iOS is not supported. If you try to use it on iOS, it will throw an error.
+Or with EAS: `eas build --platform android`.
 
 ## Usage
 
@@ -79,6 +96,8 @@ function App() {
   return <Button title="Set Wallpaper" onPress={handleSetWallpaper} />;
 }
 ```
+
+A full Expo example app is in the [`example`](example) folder.
 
 
 ## Contributing
