@@ -1,33 +1,26 @@
 {
   "name": "react-native-wallpaper-set-example",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
+  "main": "index.ts",
   "scripts": {
-    "android": "react-native run-android",
-    "start": "react-native start",
-    "build:android": "react-native build-android --extra-params \"--no-daemon --console=plain -PreactNativeArchitectures=arm64-v8a\""
+    "start": "expo start --dev-client",
+    "android": "expo run:android",
+    "prebuild": "expo prebuild --platform android --clean",
+    "build:android": "expo prebuild --platform android --clean && cd android && ./gradlew assembleDebug --no-daemon --console=plain -PreactNativeArchitectures=arm64-v8a"
   },
   "dependencies": {
-    "react": "19.2.0",
-    "react-native": "0.83.0",
-    "react-native-image-picker": "^7.1.2",
+    "expo": "~57.0.30",
+    "expo-image-picker": "~57.0.20",
+    "expo-status-bar": "~57.0.1",
+    "react": "19.2.3",
+    "react-native": "0.86.3",
     "react-native-nitro-modules": "^0.33.0",
     "react-native-nitro-wallpaper": "*"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@babel/preset-env": "^7.25.3",
-    "@babel/runtime": "^7.25.0",
-    "@react-native-community/cli": "20.0.0",
-    "@react-native-community/cli-platform-android": "20.0.0",
-    "@react-native/babel-preset": "0.83.0",
-    "@react-native/metro-config": "0.83.0",
-    "@react-native/typescript-config": "0.83.0",
-    "@types/react": "^19.2.0",
-    "react-native-builder-bob": "^0.40.17",
-    "react-native-monorepo-config": "^0.3.1"
-  },
-  "engines": {
-    "node": ">=20"
+    "@types/react": "~19.2.2",
+    "react-native-monorepo-config": "^0.3.1",
+    "typescript": "~6.0.3"
   }
 }

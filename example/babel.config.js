@@ -1,12 +1,7 @@
-const path = require('path');
-const { getConfig } = require('react-native-builder-bob/babel-config');
-const pkg = require('../package.json');
+module.exports = function (api) {
+  api.cache(true);
 
-const root = path.resolve(__dirname, '..');
-
-module.exports = getConfig(
-  {
-    presets: ['module:@react-native/babel-preset'],
-  },
-  { root, pkg }
-);
+  return {
+    presets: ['babel-preset-expo'],
+  };
+};

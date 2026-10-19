@@ -1,15 +1,10 @@
 const path = require('path');
-const { getDefaultConfig } = require('@react-native/metro-config');
+const { getDefaultConfig } = require('expo/metro-config');
 const { withMetroConfig } = require('react-native-monorepo-config');
 
 const root = path.resolve(__dirname, '..');
 
-/**
- * Metro configuration
- * https://facebook.github.io/metro/docs/configuration
- *
- * @type {import('metro-config').MetroConfig}
- */
+// Resolve the library from ../src so changes show up without rebuilding it.
 module.exports = withMetroConfig(getDefaultConfig(__dirname), {
   root,
   dirname: __dirname,
