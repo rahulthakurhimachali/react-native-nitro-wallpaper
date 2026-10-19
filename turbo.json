@@ -12,10 +12,7 @@
         "src/*.ts",
         "src/*.tsx",
         "example/package.json",
-        "example/android",
-        "!example/android/.gradle",
-        "!example/android/build",
-        "!example/android/app/build"
+        "example/app.json"
       ],
       "outputs": []
     }
